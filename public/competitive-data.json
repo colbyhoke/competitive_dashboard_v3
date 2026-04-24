@@ -1,0 +1,418 @@
+{
+  "_schema": "SAS Viya Competitive Intelligence Dashboard v2.0",
+  "_instructions": {
+    "scores": "1-10 integers. Follow the 14-dimension order exactly.",
+    "threat": "One of: CRITICAL | HIGH | MEDIUM-HIGH | MODERATE-HIGH | MODERATE | LOW | null (null = SAS itself)",
+    "tier": "0=SAS, 1=Platform/Data+AI, 2=Analytics/ML, 3=BI/Viz, 4=Statistical",
+    "analystKeys": "gartnerDSML | gartnerDecision | gartnerABI | forrester | idc | g2",
+    "dimensions": "Must match the 'dimensions' array order below"
+  },
+
+  "meta": {
+    "lastUpdated": "2026-04-22",
+    "version": "2.0",
+    "coverageWindow": "October 2024 – April 2026",
+    "classification": "Internal — Marketing & Product Strategy",
+    "author": "SAS Competitive Intelligence"
+  },
+
+  "dimensions": [
+    { "id": "data_access",    "label": "Data Access / Integration",    "marketWeight": 7 },
+    { "id": "data_prep",      "label": "Data Prep / Quality",           "marketWeight": 7 },
+    { "id": "model_dev",      "label": "Model Development",             "marketWeight": 8 },
+    { "id": "automl",         "label": "AutoML",                        "marketWeight": 6 },
+    { "id": "mlops",          "label": "MLOps / Deployment",            "marketWeight": 8 },
+    { "id": "genai",          "label": "GenAI / Agentic AI",            "marketWeight": 10 },
+    { "id": "governance",     "label": "Governance / Responsible AI",   "marketWeight": 9 },
+    { "id": "decisioning",    "label": "Decisioning",                   "marketWeight": 7 },
+    { "id": "visualization",  "label": "Visualization / BI",            "marketWeight": 5 },
+    { "id": "deployment",     "label": "Deployment Flexibility",        "marketWeight": 6 },
+    { "id": "industry",       "label": "Industry / Vertical Depth",     "marketWeight": 7 },
+    { "id": "opensource",     "label": "Open Source / Ecosystem",       "marketWeight": 5 },
+    { "id": "pricing",        "label": "Pricing / TCO Transparency",    "marketWeight": 5 },
+    { "id": "sentiment",      "label": "Customer Sentiment",            "marketWeight": 5 }
+  ],
+
+  "tiers": {
+    "1": { "label": "Platform / Data + AI",    "color": "#E53935" },
+    "2": { "label": "Analytics / ML / DS",     "color": "#F57C00" },
+    "3": { "label": "BI / Visualization",      "color": "#1E88E5" },
+    "4": { "label": "Statistical / Technical", "color": "#78909C" }
+  },
+
+  "quickStats": [
+    { "label": "DSML MQ 2025",       "value": "Visionary",   "sub": "dropped from Leader",    "sentiment": "warn"   },
+    { "label": "Decision Intel MQ",  "value": "Leader",      "sub": "inaugural 2026",          "sentiment": "good"   },
+    { "label": "Forrester AI/ML",    "value": "Leader",      "sub": "Q3 2024",                 "sentiment": "good"   },
+    { "label": "#1 Threat",          "value": "Databricks",  "sub": "$134B · DSML #1",         "sentiment": "bad"    },
+    { "label": "Key Gap",            "value": "GenAI 5/10",  "sub": "vs. best-in-class 9/10",  "sentiment": "bad"    },
+    { "label": "Key Moat",           "value": "Decisioning", "sub": "10/10 — no peer > 7",     "sentiment": "good"   }
+  ],
+
+  "marketPriorities": [
+    { "rank": 1, "label": "GenAI / Agentic AI",         "dimensionId": "genai",       "weight": 10, "rationale": "Gartner: 40% of apps will include agents by 2026; Forrester added 8 dedicated GenAI criteria in BI Wave" },
+    { "rank": 2, "label": "Governance / Responsible AI","dimensionId": "governance",  "weight": 9,  "rationale": "Gartner Top Strategic Tech Trend 2026; IDC launched dedicated AI Governance MarketScape" },
+    { "rank": 3, "label": "Model Development",          "dimensionId": "model_dev",   "weight": 8,  "rationale": "Core DSML evaluation criterion across all analyst frameworks" },
+    { "rank": 4, "label": "MLOps / Deployment",         "dimensionId": "mlops",       "weight": 8,  "rationale": "MLOps maturity is a primary DSML MQ evaluation axis" },
+    { "rank": 5, "label": "Data Access / Integration",  "dimensionId": "data_access", "weight": 7,  "rationale": "Data connectivity breadth is a top buyer requirement per Gartner surveys" },
+    { "rank": 6, "label": "Industry / Vertical Depth",  "dimensionId": "industry",    "weight": 7,  "rationale": "Domain-specific solutions increasingly cited as differentiation driver" },
+    { "rank": 7, "label": "Decisioning",                "dimensionId": "decisioning", "weight": 7,  "rationale": "Gartner launched dedicated Decision Intelligence MQ; growing buyer category" }
+  ],
+
+  "watchItems": [
+    {
+      "id": "databricks_ipo",
+      "title": "Databricks IPO (H2 2026)",
+      "severity": "CRITICAL",
+      "detail": "Will dramatically increase visibility, enterprise credibility, and capital. Prepare competitive retention materials before S-1 filing. Post-IPO Databricks with $5B+ revenue growing 65% will intensify pressure across every dimension."
+    },
+    {
+      "id": "dataiku_ipo",
+      "title": "Dataiku IPO (H1 2026)",
+      "severity": "HIGH",
+      "detail": "Reuters reported Dataiku hired Morgan Stanley and Citigroup. A direct DSML Leader competitor going public while SAS is Visionary creates an acute narrative problem for SAS sales teams."
+    },
+    {
+      "id": "altair_sas_compat",
+      "title": "Altair RapidMiner + SAS Code Execution",
+      "severity": "HIGH",
+      "detail": "Siemens' backing plus native SAS language compatibility explicitly targets SAS migration scenarios. Monitor Siemens go-to-market investment — this is the most direct installed-base threat."
+    },
+    {
+      "id": "fabric_ds",
+      "title": "Microsoft Fabric Data Science Expansion",
+      "severity": "HIGH",
+      "detail": "Fabric is already Leader in data fabric and BI. As data science capabilities mature, 30M+ Power BI users represent the largest 'good enough' analytics threat facing SAS."
+    },
+    {
+      "id": "palantir_finserv",
+      "title": "Palantir Financial Services Push via Accenture / Deloitte",
+      "severity": "MEDIUM-HIGH",
+      "detail": "Accenture Palantir Business Group (2,000+ skilled professionals) scaling commercial delivery. If partnerships expand into financial services risk/compliance — SAS's stronghold — the threat elevates significantly."
+    }
+  ],
+
+  "vendors": [
+    {
+      "id": "sas_viya",
+      "name": "SAS Viya",
+      "isSAS": true,
+      "tier": 0,
+      "threat": null,
+      "revenue": "$3B+ (private, profitable 40+ years)",
+      "scores": [8, 8, 9, 7, 8, 5, 9, 10, 6, 8, 10, 5, 3, 6],
+      "analyst": {
+        "gartnerDSML":     "Visionary (2025) — dropped from Leader",
+        "gartnerDecision": "Leader (2026, inaugural)",
+        "gartnerABI":      "—",
+        "forrester":       "Leader — AI/ML (Q3 2024); Leader — Real-Time Interaction Mgmt (Q1 2024)",
+        "idc":             "Leader — MLOps (2024); Leader — Decision Intelligence (2024)",
+        "g2":              "4.2/5 (606 reviews)"
+      },
+      "genaiStatus": "Viya Copilot GA Dec 2025 (Azure AI Foundry); Retrieval Agent Manager announced Oct 2025; Agentic AI Accelerator toolkit; SAS Intelligent Decisioning (LLM reasoning + rules + ML)",
+      "keyMove": "Intelligent Decisioning GA (May 2025); Hazy acquisition (synthetic data, Nov 2024); Viya Copilot GA; Named Leader in inaugural Gartner Decision Intelligence MQ (Jan 2026)",
+      "threatVector": null,
+      "sasAdvantage": null
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "isSAS": false,
+      "tier": 1,
+      "threat": "CRITICAL",
+      "revenue": ">$5.4B ARR, 65%+ YoY",
+      "scores": [9, 7, 8, 8, 9, 9, 8, 4, 5, 7, 5, 10, 6, 8],
+      "analyst": {
+        "gartnerDSML":     "Leader #1 (2025) — highest Ability to Execute AND Completeness of Vision",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "Leader — Data Lakehouses (Q2 2024)",
+        "idc":             "—",
+        "g2":              "4.5/5 (661 reviews)"
+      },
+      "genaiStatus": "Agent Bricks (no-code agentic AI platform); Mosaic AI Gateway GA; $100M OpenAI partnership (GPT-5 native); 4-year Google Gemini partnership; MLflow 3.0 with prompt versioning; Storage-Optimized Vector Search (7x cheaper); MCP servers",
+      "keyMove": "$134B valuation (Series L, Dec 2025); Lakebase GA on AWS (Feb 2026); Neon acquisition $1B (May 2025); DAIS 2025 — 22,000+ attendees; IPO expected H2 2026; >$5.4B ARR growing 65%+ YoY",
+      "threatVector": "#1 DSML MQ while SAS is Visionary; overwhelming market momentum; most comprehensive GenAI platform; open-source developer gravity (Apache Spark 2B+ downloads, MLflow most-used ML lifecycle tool)",
+      "sasAdvantage": "Statistical depth (50+ years of proprietary algorithms), regulated industry compliance (Basel, IFRS, FDA), SAS Intelligent Decisioning (no Databricks equivalent), fraud/AML solutions (Forrester Leader), on-premises deployment (Databricks cloud-only)"
+    },
+    {
+      "id": "palantir",
+      "name": "Palantir",
+      "isSAS": false,
+      "tier": 1,
+      "threat": "HIGH",
+      "revenue": "$4.475B FY2025 (+56% YoY)",
+      "scores": [8, 7, 6, 4, 7, 9, 9, 7, 5, 10, 8, 4, 2, 7],
+      "analyst": {
+        "gartnerDSML":     "Not evaluated",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "Leader — AI/ML Q3 2024 (#1 Current Offering)",
+        "idc":             "#1 Worldwide AI Software Platform market share",
+        "g2":              "4.3/5 (54 reviews)"
+      },
+      "genaiStatus": "AIP Agent Studio; AIP Logic; AIP Analyst; AI FDE beta (Nov 2025); 1,500+ AIP Bootcamps completed; Ontology-grounded agentic AI with operational action execution",
+      "keyMove": "$10B U.S. Army Enterprise Agreement (Jul 2025); FedRAMP High authorization (Dec 2024); Q4 2025 revenue +70% YoY; $300–490B market cap; participation in $185B Golden Dome missile defense",
+      "threatVector": "AIP/agentic AI redefining category from 'analytics' to 'AI operating system'; government dominance at scale SAS cannot match; ontology-driven operational AI vs. SAS analytics-first model; AIP Bootcamps compress sales cycles from months to days",
+      "sasAdvantage": "Statistical modeling depth, banking/insurance regulatory compliance (Basel/IFRS/Solvency — no Palantir equivalent), pricing accessibility (Palantir deals $5M–$100M+), international commercial penetration (Palantir intl. commercial grew only 2.5% FY2025)"
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "isSAS": false,
+      "tier": 1,
+      "threat": "MEDIUM-HIGH",
+      "revenue": "$3.6B+ FY2025; ~$4B ARR",
+      "scores": [9, 7, 5, 5, 6, 8, 7, 2, 4, 6, 4, 8, 6, 8],
+      "analyst": {
+        "gartnerDSML":     "Niche Player (2025)",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "Leader — Data Clean Room",
+        "g2":              "4.5/5 (2,600+ reviews)"
+      },
+      "genaiStatus": "Cortex Agents GA (Nov 2025); Snowflake Intelligence GA (Dec 2025); Cortex AI Functions GA; GPT-5.2 integration via Cortex; AI use cases = 25% of implementations and 50% of new customer acquisitions",
+      "keyMove": "Crunchy Data acquisition (~$250M, Jun 2025 — adds PostgreSQL operational DB); Advanced from Challenger to Leader in Gartner Cloud DBMS MQ; 100+ feature announcements at Summit 2025",
+      "threatVector": "Platform gravity: enterprises building analytics natively on Snowflake via Cortex AI rather than licensing SAS; 13,300+ customers; expanding from warehousing into operational databases",
+      "sasAdvantage": "Statistical modeling depth, SAS Intelligent Decisioning, fraud/risk/AML solutions, on-premises deployment (Snowflake cloud-only), regulatory domain expertise, model risk management"
+    },
+    {
+      "id": "dataiku",
+      "name": "Dataiku",
+      "isSAS": false,
+      "tier": 1,
+      "threat": "HIGH",
+      "revenue": "$300M ARR (2024, 20% YoY)",
+      "scores": [7, 8, 8, 9, 8, 8, 9, 3, 6, 8, 5, 9, 5, 9],
+      "analyst": {
+        "gartnerDSML":     "Leader (2025 — 4th consecutive year); #1 Product Owner use case in Critical Capabilities",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "Leader — Unified AI Governance (2025–2026)",
+        "g2":              "4.8/5 (288 reviews); Customers' Choice; 96% Willingness to Recommend"
+      },
+      "genaiStatus": "LLM Mesh (comprehensive LLM gateway); Agent Hub (Apr 2025) with Safe Guard, Quality Guard, Cost Guard; EU AI Act readiness framework in Dataiku Govern; multi-persona platform",
+      "keyMove": "IPO preparation (Morgan Stanley + Citigroup reportedly hired, H1 2026 target); Customers' Choice recognition; #1 Product Owner use case in Gartner CC; Leader 4th consecutive year while SAS dropped to Visionary",
+      "threatVector": "Direct DSML competitor — Leader in same MQ where SAS is Visionary; governance-first positioning resonates with regulated enterprises; multi-persona approach captures data engineers, scientists, and business analysts; potential IPO would amplify visibility",
+      "sasAdvantage": "Statistical algorithm heritage, SAS Intelligent Decisioning (no Dataiku equivalent), industry-specific solutions (fraud, AML, credit risk, clinical trials, model risk management), deep enterprise relationships in regulated industries"
+    },
+    {
+      "id": "alteryx",
+      "name": "Alteryx",
+      "isSAS": false,
+      "tier": 2,
+      "threat": "MODERATE",
+      "revenue": "Private (Clearlake Capital / Insight Partners, $4.4B buyout Mar 2024)",
+      "scores": [7, 9, 5, 5, 4, 5, 5, 2, 6, 7, 3, 5, 5, 8],
+      "analyst": {
+        "gartnerDSML":     "Niche Player (2025)",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "—",
+        "g2":              "4.6/5 (660 reviews); 92% Willingness to Recommend"
+      },
+      "genaiStatus": "AiDIN AI engine; multi-LLM support (OpenAI, Anthropic, Gemini); Alteryx One Platform launched May 2025 with GenAI integration",
+      "keyMove": "Taken private $4.4B (Mar 2024); new CEO Andy MacMillan repositioning as 'AI Data Clearinghouse'; Alteryx One Platform unifying cloud and desktop (May 2025); fastest implementation time in G2 category (3.86 months)",
+      "threatVector": "Self-service analytics and citizen data science ease-of-use advantages; lower entry pricing ($5,195/user/year vs. SAS enterprise); 'AI Data Clearinghouse' repositioning may capture mid-market SAS prospects",
+      "sasAdvantage": "Enterprise ML depth, statistical rigor, SAS Intelligent Decisioning, governance for regulated industries, scale, breadth of industry solutions"
+    },
+    {
+      "id": "h2o_ai",
+      "name": "H2O.ai",
+      "isSAS": false,
+      "tier": 2,
+      "threat": "MODERATE-HIGH",
+      "revenue": "Private ($256M total funding)",
+      "scores": [5, 4, 8, 10, 7, 8, 6, 2, 3, 8, 4, 9, 7, 6],
+      "analyst": {
+        "gartnerDSML":     "Visionary (2025 — 3rd consecutive year)",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "—",
+        "g2":              "4.4/5 (40 reviews)"
+      },
+      "genaiStatus": "h2oGPTe achieved #1 on GAIA benchmark (75% accuracy, Mar 2025) — outperformed Google, Microsoft, and Hugging Face; agentic AI features launched May 2025; sovereign AI for air-gapped/on-prem deployment validated on Dell AI Factory with NVIDIA",
+      "keyMove": "#1 GAIA benchmark (Mar 2025); Dell AI Factory validation; AT&T 90% cost reduction in call center operations via H2O.ai; Commonwealth Bank and Progressive Insurance customer references",
+      "threatVector": "Best-in-class AutoML (Driverless AI); sovereign AI messaging resonates in banking, telecom, and government where SAS competes; open-source H2O-3 creates developer entry point; GAIA benchmark win credibility",
+      "sasAdvantage": "Platform breadth, SAS Intelligent Decisioning, domain-specific industry solutions, BI/reporting capabilities, enterprise scale and support, 40+ years of regulated industry credibility"
+    },
+    {
+      "id": "altair_rapidminer",
+      "name": "Altair RapidMiner",
+      "isSAS": false,
+      "tier": 2,
+      "threat": "HIGH",
+      "revenue": "Siemens subsidiary ($75.9B parent revenue FY2024)",
+      "scores": [6, 7, 8, 8, 7, 5, 5, 2, 5, 7, 4, 7, 6, 7],
+      "analyst": {
+        "gartnerDSML":     "Leader (2025 — 2nd consecutive year)",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "—",
+        "g2":              "4.4/5 (450+ reviews)"
+      },
+      "genaiStatus": "AI Studio with agent frameworks and GenAI integration; native SAS language execution (one of only two platforms with this capability); explicit SAS migration tooling",
+      "keyMove": "Siemens $10.6B acquisition completed Mar 2025; Altair AI Studio native SAS code compatibility; Leader in Gartner DSML MQ while SAS is Visionary; access to Siemens $75.9B enterprise customer base",
+      "threatVector": "Only competitor with native SAS language execution — explicitly designed to capture SAS migration scenarios; Siemens $10.6B backing provides resources to scale; Leader in same DSML MQ where SAS is Visionary",
+      "sasAdvantage": "Domain-specific regulatory compliance products, SAS Intelligent Decisioning, brand recognition in banking/insurance/healthcare, global support infrastructure, proven enterprise scale"
+    },
+    {
+      "id": "tableau",
+      "name": "Tableau (Salesforce)",
+      "isSAS": false,
+      "tier": 3,
+      "threat": "MODERATE-HIGH",
+      "revenue": "Part of Salesforce ($34.9B total)",
+      "scores": [5, 5, 2, 1, 2, 7, 4, 1, 10, 7, 3, 5, 5, 8],
+      "analyst": {
+        "gartnerDSML":     "—",
+        "gartnerDecision": "—",
+        "gartnerABI":      "Leader (2025)",
+        "forrester":       "Leader — BI Platforms (Q2 2025): 'gold standard for data visualization'",
+        "idc":             "—",
+        "g2":              "4.4/5 (9,227+ reviews)"
+      },
+      "genaiStatus": "Tableau Next GA (Apr 2025) — agentic analytics platform with 3 agentic skills (Data Pro, Concierge, Inspector) powered by Salesforce Agentforce; Tableau Semantics GA (AI-powered semantic layer); Tableau Agent for conversational analytics across Desktop, Cloud, Server",
+      "keyMove": "Tableau Next GA (Apr 2025); TC25 conference; deep Salesforce Data Cloud + CRM integration; Agentforce powering AI capabilities; Creator pricing $75–$115/user/month",
+      "threatVector": "'Gold standard' visualization; Salesforce CRM-to-insights pipeline SAS cannot match; Tableau Next agentic platform competing in analytical AI; massive installed base (9,227+ G2 reviews reflects market depth)",
+      "sasAdvantage": "Advanced statistical modeling, ML pipelines, SAS Intelligent Decisioning, fraud/risk/AML solutions, model risk management, regulated industry compliance, deployment flexibility"
+    },
+    {
+      "id": "power_bi",
+      "name": "Power BI / Microsoft Fabric",
+      "isSAS": false,
+      "tier": 3,
+      "threat": "HIGH",
+      "revenue": "Part of Microsoft ($245B+ total FY2025)",
+      "scores": [7, 6, 3, 2, 3, 8, 6, 2, 10, 6, 3, 7, 9, 8],
+      "analyst": {
+        "gartnerDSML":     "Leader — Azure ML (2025)",
+        "gartnerDecision": "—",
+        "gartnerABI":      "Leader #1 (2025 — 18th consecutive year); 30M+ monthly active users",
+        "forrester":       "Leader — BI (Q2 2025, #1 GenAI in BI Wave); Leader — Data Fabric (Q4 2025, highest Current Offering AND Strategy)",
+        "idc":             "—",
+        "g2":              "4.5/5 (3,800+ reviews)"
+      },
+      "genaiStatus": "Copilot GA across Microsoft Fabric (data engineering, warehousing, data science, BI); #1 GenAI score in Forrester BI Wave; AI-powered semantic models; natural language query across 30M+ user base",
+      "keyMove": "Microsoft Fabric — unified SaaS platform replacing Power BI Premium; named Leader in Forrester Data Fabric Wave (Q4 2025) with highest scores; Fabric expanding into data science workloads; Power BI Pro at $14/user/month",
+      "threatVector": "#1 ABI MQ for 18 consecutive years; 30M+ monthly active users = largest 'good enough' analytics installed base; $14/month pricing creates dramatic TCO advantage; Fabric expanding into data science encroaches on SAS territory",
+      "sasAdvantage": "Advanced statistical modeling, SAS Intelligent Decisioning (no Fabric equivalent), fraud/AML/risk solutions, model risk management for regulated industries, vertical solutions depth, deployment flexibility (SAS supports on-prem/air-gapped; Fabric is SaaS-only)"
+    },
+    {
+      "id": "qlik",
+      "name": "Qlik",
+      "isSAS": false,
+      "tier": 3,
+      "threat": "MODERATE",
+      "revenue": "Private (Thoma Bravo); 40,000+ customers",
+      "scores": [9, 8, 4, 5, 3, 5, 6, 2, 9, 7, 4, 7, 5, 7],
+      "analyst": {
+        "gartnerDSML":     "—",
+        "gartnerDecision": "—",
+        "gartnerABI":      "Leader (2025 — 15th consecutive year)",
+        "forrester":       "—",
+        "idc":             "Leader — Data Integration Tools (10th consecutive year)",
+        "g2":              "4.5/5 (1,303 reviews)"
+      },
+      "genaiStatus": "Qlik Answers (NLQ/conversational analytics assistant); Qlik Staige (AI/ML integration layer); AutoML capabilities via Qlik Cloud; Open Lakehouse managed Apache Iceberg solution",
+      "keyMove": "Dual Gartner Leader unique status — ABI Platforms AND Data Integration Tools; Qlik Open Lakehouse GA (Sep 2025, 2.5–5x faster queries, up to 50% lower infrastructure costs); Talend integration for CDC/real-time 200+ sources",
+      "threatVector": "Unique dual Gartner Leader status in BI and Data Integration — competes with SAS data management solutions; associative engine enables free-form data exploration; CDC and real-time data movement depth",
+      "sasAdvantage": "Advanced statistical modeling and ML depth, SAS Intelligent Decisioning, vertical industry solutions, fraud/risk/AML, model risk management, broader platform breadth"
+    },
+    {
+      "id": "spss",
+      "name": "IBM SPSS Statistics",
+      "isSAS": false,
+      "tier": 4,
+      "threat": "LOW",
+      "revenue": "Part of IBM ($61.9B total FY2024)",
+      "scores": [3, 3, 5, 2, 2, 2, 2, 1, 3, 4, 3, 3, 6, 7],
+      "analyst": {
+        "gartnerDSML":     "Not evaluated (IBM watsonx is Leader, separate product)",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "—",
+        "g2":              "4.5/5 (922 reviews)"
+      },
+      "genaiStatus": "AI Output Assistant (watsonx-powered) added in SPSS Statistics 31 (Jun 2025) — LLM-powered plain-language explanations of SPSS output only. No agentic features.",
+      "keyMove": "SPSS Statistics 31 (Jun 2025); AI Output Assistant addition; IBM's strategic AI investment concentrated on watsonx — SPSS appears to be in 'maintain and harvest' mode. $105/user/month base subscription.",
+      "threatVector": "Academic and research market penetration; point-and-click ease for non-programmers; IBM watsonx halo effect; 922 G2 reviews suggest meaningful installed base",
+      "sasAdvantage": "Cloud-native platform, MLOps, model governance, SAS Intelligent Decisioning, enterprise scale, GenAI integration, vertical industry solutions, deployment flexibility"
+    },
+    {
+      "id": "stata",
+      "name": "Stata",
+      "isSAS": false,
+      "tier": 4,
+      "threat": "LOW",
+      "revenue": "Private (StataCorp, ~200 employees)",
+      "scores": [2, 2, 7, 2, 1, 1, 1, 1, 3, 2, 3, 4, 8, 8],
+      "analyst": {
+        "gartnerDSML":     "Not evaluated",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "—",
+        "g2":              "4.5/5 (120+ reviews)"
+      },
+      "genaiStatus": "None — no GenAI or agentic AI features announced as of April 2026.",
+      "keyMove": "Stata 19 (Apr 2025): H2OML Suite (gradient boosting, random forests — first major ML capability ever added), CATE for treatment-effect heterogeneity, HDFE for high-dimensional fixed effects, Bayesian variable selection. Student pricing from $48/6 months.",
+      "threatVector": "Econometrics, epidemiology, and social science academic dominance; World Bank / IMF institutional usage; affordable pricing; students trained on Stata are less likely to adopt SAS",
+      "sasAdvantage": "Enterprise capabilities, cloud platform, AI/ML breadth, production deployment, model governance, BI/reporting, vendor support scale, GenAI integration"
+    },
+    {
+      "id": "matlab",
+      "name": "MATLAB (MathWorks)",
+      "isSAS": false,
+      "tier": 4,
+      "threat": "LOW",
+      "revenue": "Private (~6,500 employees; est. $1.5B+ revenue)",
+      "scores": [3, 2, 7, 4, 4, 5, 2, 1, 6, 4, 6, 5, 5, 7],
+      "analyst": {
+        "gartnerDSML":     "Niche Player (2025)",
+        "gartnerDecision": "—",
+        "gartnerABI":      "—",
+        "forrester":       "—",
+        "idc":             "—",
+        "g2":              "4.0/5 (453 reviews)"
+      },
+      "genaiStatus": "MATLAB Copilot (GPT-5 mini powered) for code generation, explanation, and improvement in R2025a/b; expanded GPU support (1,256 functions across 17 toolboxes); C/C++ code generation from Classification/Regression Learner apps",
+      "keyMove": "R2025a/b with MATLAB Copilot; deep learning toolbox expansion; engineering/simulation remains core. Competes in automotive, aerospace, defense, telecom, semiconductor — fundamentally different base from SAS.",
+      "threatVector": "Engineering and simulation market dominance; deep learning toolbox for technical computing; embedded/hardware deployment from MATLAB models; MATLAB Copilot expanding accessibility",
+      "sasAdvantage": "Enterprise analytics and BI, SAS Intelligent Decisioning, data management, non-engineering verticals (banking, healthcare, insurance, government), model risk management, deployment governance"
+    }
+  ],
+
+  "timeline": [
+    { "date": "Oct 2024", "vendorId": "altair_rapidminer", "vendorName": "Altair/Siemens", "tier": 2, "event": "$10.6B acquisition agreement signed" },
+    { "date": "Nov 2024", "vendorId": "sas_viya",          "vendorName": "SAS",            "tier": 0, "event": "Hazy acquisition (synthetic data) — accelerates SAS Data Maker" },
+    { "date": "Dec 2024", "vendorId": "databricks",        "vendorName": "Databricks",     "tier": 1, "event": "Series J: $10B at $62B valuation — pre-IPO war chest" },
+    { "date": "Dec 2024", "vendorId": "palantir",          "vendorName": "Palantir",       "tier": 1, "event": "FedRAMP High authorization (full suite) — most sensitive government workloads" },
+    { "date": "Jan 2025", "vendorId": "sas_viya",          "vendorName": "SAS",            "tier": 0, "event": "Viya Essentials packaged cloud offering launched" },
+    { "date": "Mar 2025", "vendorId": "h2o_ai",            "vendorName": "H2O.ai",         "tier": 2, "event": "h2oGPTe #1 on GAIA benchmark (75%) — outperforms Google, Microsoft, Hugging Face" },
+    { "date": "Mar 2025", "vendorId": "altair_rapidminer", "vendorName": "Siemens/Altair", "tier": 2, "event": "Siemens $10.6B acquisition of Altair completed" },
+    { "date": "Apr 2025", "vendorId": "tableau",           "vendorName": "Tableau",        "tier": 3, "event": "Tableau Next GA — agentic analytics platform with Agentforce-powered skills" },
+    { "date": "Apr 2025", "vendorId": "dataiku",           "vendorName": "Dataiku",        "tier": 1, "event": "AI Agents with Dataiku launched — Agent Hub with Safe/Quality/Cost Guard" },
+    { "date": "May 2025", "vendorId": "sas_viya",          "vendorName": "SAS",            "tier": 0, "event": "Intelligent Decisioning GA; Agentic AI Accelerator; SAS Innovate 2025" },
+    { "date": "May 2025", "vendorId": "databricks",        "vendorName": "Databricks",     "tier": 1, "event": "Neon acquisition ($1B) — foundation for Lakebase OLTP database" },
+    { "date": "May 2025", "vendorId": "sas_viya",          "vendorName": "Gartner",        "tier": 0, "event": "2025 DSML MQ published — SAS drops to Visionary; Databricks #1 Leader" },
+    { "date": "Jun 2025", "vendorId": "databricks",        "vendorName": "Databricks",     "tier": 1, "event": "DAIS 2025 (22,000+ attendees): Agent Bricks, Lakebase, MLflow 3.0, Databricks One" },
+    { "date": "Jun 2025", "vendorId": "snowflake",         "vendorName": "Snowflake",      "tier": 1, "event": "Summit 2025: 100+ features; Crunchy Data acquisition (~$250M)" },
+    { "date": "Jul 2025", "vendorId": "palantir",          "vendorName": "Palantir",       "tier": 1, "event": "$10B U.S. Army Enterprise Agreement — largest single government contract" },
+    { "date": "Sep 2025", "vendorId": "databricks",        "vendorName": "Databricks",     "tier": 1, "event": "$100M OpenAI partnership — GPT-5 native in Agent Bricks" },
+    { "date": "Sep 2025", "vendorId": "qlik",              "vendorName": "Qlik",           "tier": 3, "event": "Open Lakehouse GA — managed Apache Iceberg, 2.5–5x faster, 50% lower cost" },
+    { "date": "Oct 2025", "vendorId": "sas_viya",          "vendorName": "SAS",            "tier": 0, "event": "Retrieval Agent Manager (RAM) announced — enterprise RAG and agentic workflows" },
+    { "date": "Nov 2025", "vendorId": "snowflake",         "vendorName": "Snowflake",      "tier": 1, "event": "Cortex Agents GA; Cortex AI Functions GA — production agentic AI on data platform" },
+    { "date": "Dec 2025", "vendorId": "sas_viya",          "vendorName": "SAS",            "tier": 0, "event": "Viya Copilot GA (2025.12 release) — AI assistant in Model Studio, Model Manager, VS Code" },
+    { "date": "Dec 2025", "vendorId": "databricks",        "vendorName": "Databricks",     "tier": 1, "event": "Series L at $134B — revenue >$4.8B, 55% YoY; IPO preparation confirmed" },
+    { "date": "Jan 2026", "vendorId": "sas_viya",          "vendorName": "Gartner",        "tier": 0, "event": "SAS named Leader in inaugural Gartner MQ for Decision Intelligence Platforms" },
+    { "date": "Feb 2026", "vendorId": "databricks",        "vendorName": "Databricks",     "tier": 1, "event": "Lakebase GA on AWS; revenue >$5.4B, >65% YoY; $5B equity + $2B debt completed" },
+    { "date": "Apr 2026", "vendorId": "sas_viya",          "vendorName": "SAS",            "tier": 0, "event": "SAS Innovate 2026 (Apr 27–30) — announcements pending" }
+  ]
+}
